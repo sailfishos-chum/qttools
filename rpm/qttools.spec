@@ -265,8 +265,7 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %{_opt_qt5_archdatadir}/mkspecs/modules/qt_lib_help_private.pri
 %{_opt_qt5_archdatadir}/mkspecs/modules/qt_lib_uiplugin.pri
 # putting these here for now, new stuff in 5.14, review for accuracy -- rdieter
-%{_opt_qt5_libdir}/cmake/Qt5AttributionsScannerTools/
-%{_opt_qt5_libdir}/cmake/Qt5DocTools/
+%{_opt_qt5_libdir}/cmake
 
 %files static
 %{_opt_qt5_headerdir}/QtUiTools/
