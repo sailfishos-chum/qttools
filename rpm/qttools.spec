@@ -197,7 +197,7 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 #{_datadir}/icons/hicolor/*/apps/assistant*.*
 
 %files -n qt5-doctools
-%{_opt_qt5_bindir}/qdoc*
+#{_opt_qt5_bindir}/qdoc*
 %{_opt_qt5_bindir}/qdistancefieldgenerator*
 %{_opt_qt5_bindir}/qhelpgenerator*
 %{_opt_qt5_bindir}/qtattributionsscanner*
