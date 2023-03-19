@@ -164,8 +164,6 @@ popd
 ## Qt5Designer.pc references non-existent Qt5UiPlugin.pc, remove the reference for now
 sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Designer.pc
 
-%endif
-
 
 %files
 %{_opt_qt5_bindir}/qdbus-qt5
@@ -196,39 +194,11 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %files  libs-help
 %{_opt_qt5_libdir}/libQt5Help.so.5*
 
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%post -n qt5-assistant
-touch --no-create %{_datadir}/icons/hicolor ||:
-
-%posttrans -n qt5-assistant
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-
-%postun -n qt5-assistant
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/hicolor ||:
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-fi
-%endif
-
 %files -n qt5-assistant
 %{_opt_qt5_bindir}/assistant-qt5
 %{_opt_qt5_bindir}/assistant*
 %{_datadir}/applications/*assistant.desktop
 %{_datadir}/icons/hicolor/*/apps/assistant*.*
-
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%post -n qt5-doctools
-touch --no-create %{_datadir}/icons/hicolor ||:
-
-%posttrans -n qt5-doctools
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-
-%postun -n qt5-doctools
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/hicolor ||:
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-fi
-%endif
 
 %files -n qt5-doctools
 %{_opt_qt5_bindir}/qdoc*
@@ -239,21 +209,6 @@ fi
 %{_opt_qt5_bindir}/qhelpgenerator*
 %{_opt_qt5_bindir}/qtattributionsscanner-qt5
 %{_opt_qt5_bindir}/qtattributionsscanner*
-
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%post -n qt5-designer
-touch --no-create %{_datadir}/icons/hicolor ||:
-
-%posttrans -n qt5-designer
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-update-desktop-database -q &> /dev/null ||:
-
-%postun -n qt5-designer
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/hicolor ||:
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-fi
-%endif
 
 %files -n qt5-designer
 %{_opt_qt5_bindir}/designer*
@@ -266,21 +221,6 @@ fi
 %files -n qt5-designer-plugin-webkit
 %{_opt_qt5_plugindir}/designer/libqwebview.so
 %{_opt_qt5_libdir}/cmake/Qt5Designer/Qt5Designer_QWebViewPlugin.cmake
-%endif
-
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%post -n qt5-linguist
-touch --no-create %{_datadir}/icons/hicolor ||:
-
-%posttrans -n qt5-linguist
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-update-desktop-database -q &> /dev/null ||:
-
-%postun -n qt5-linguist
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/hicolor ||:
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-fi
 %endif
 
 %files -n qt5-linguist
@@ -303,20 +243,6 @@ fi
 %dir %{_opt_qt5_libdir}/cmake/Qt5LinguistTools/
 %{_opt_qt5_libdir}/cmake/Qt5LinguistTools/Qt5LinguistToolsConfig*.cmake
 %{_opt_qt5_libdir}/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake
-
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%post -n qt5-qdbusviewer
-touch --no-create %{_datadir}/icons/hicolor ||:
-
-%posttrans -n qt5-qdbusviewer
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-
-%postun -n qt5-qdbusviewer
-if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/hicolor ||:
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor 2> /dev/null ||:
-fi
-%endif
 
 %files -n qt5-qdbusviewer
 %{_opt_qt5_bindir}/qdbusviewer*
