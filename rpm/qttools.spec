@@ -193,8 +193,8 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 %files -n qt5-assistant
 %{_opt_qt5_bindir}/assistant*
-%{_datadir}/applications/*assistant.desktop
-%{_datadir}/icons/hicolor/*/apps/assistant*.*
+#{_datadir}/applications/*assistant.desktop
+#{_datadir}/icons/hicolor/*/apps/assistant*.*
 
 %files -n qt5-doctools
 %{_opt_qt5_bindir}/qdoc*
@@ -204,8 +204,8 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 %files -n qt5-designer
 %{_opt_qt5_bindir}/designer*
-%{_datadir}/applications/*designer.desktop
-%{_datadir}/icons/hicolor/*/apps/designer*.*
+#{_datadir}/applications/*designer.desktop
+#{_datadir}/icons/hicolor/*/apps/designer*.*
 %{_opt_qt5_libdir}/cmake/Qt5DesignerComponents/Qt5DesignerComponentsConfig*.cmake
 
 %if 0%{?webkit}
@@ -218,8 +218,8 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %{_opt_qt5_bindir}/linguist*
 # phrasebooks used by linguist
 %{_opt_qt5_datadir}/phrasebooks/
-%{_datadir}/applications/*linguist.desktop
-%{_datadir}/icons/hicolor/*/apps/linguist*.*
+#{_datadir}/applications/*linguist.desktop
+#{_datadir}/icons/hicolor/*/apps/linguist*.*
 # linguist friends
 %{_opt_qt5_bindir}/lconvert*
 %{_opt_qt5_bindir}/lrelease*
@@ -232,8 +232,8 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 %files -n qt5-qdbusviewer
 %{_opt_qt5_bindir}/qdbusviewer*
-%{_datadir}/applications/*qdbusviewer.desktop
-%{_datadir}/icons/hicolor/*/apps/qdbusviewer*.*
+#{_datadir}/applications/*qdbusviewer.desktop
+#{_datadir}/icons/hicolor/*/apps/qdbusviewer*.*
 
 %files devel
 %{_opt_qt5_bindir}/pixeltool*
