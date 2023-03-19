@@ -26,6 +26,8 @@ BuildRequires: pkgconfig(Qt5Qml)
 # libQt5DBus.so.5(Qt_5_PRIVATE_API)
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 
+BuildRequires: clang-devel llvm-devel
+
 Requires: %{name}-common = %{version}-%{release}
 
 %description
@@ -71,58 +73,53 @@ Requires: %{name}-common = %{version}-%{release}
 %package libs-help
 Summary: Qt5 Help runtime library
 Requires: %{name}-common = %{version}-%{release}
-# when split happened
-Conflicts: qt5-tools < 5.4.0-0.2
 %description libs-help
 %{summary}.
 
-%package -n qt5-assistant
+%package -n opt-qt5-assistant
 Summary: Documentation browser for Qt5
 Requires: %{name}-common = %{version}-%{release}
-%description -n qt5-assistant
+%description -n opt-qt5-assistant
 %{summary}.
 
-%package -n qt5-designer
+%package -n opt-qt5-designer
 Summary: Design GUIs for Qt5 applications
 Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 Requires: %{name}-libs-designercomponents%{?_isa} = %{version}-%{release}
-%description -n qt5-designer
+%description -n opt-qt5-designer
 %{summary}.
 
 %if 0%{?webkit}
-%package -n qt5-designer-plugin-webkit
+%package -n opt-qt5-designer-plugin-webkit
 Summary: Qt5 designer plugin for WebKit
 BuildRequires: pkgconfig(Qt5WebKitWidgets)
 Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
-%description -n qt5-designer-plugin-webkit
+%description -n opt-qt5-designer-plugin-webkit
 %{summary}.
 %endif
 
-%package -n qt5-linguist
+%package -n opt-qt5-linguist
 Summary: Qt5 Linguist Tools
 Requires: %{name}-common = %{version}-%{release}
-%description -n qt5-linguist
+%description -n opt-qt5-linguist
 Tools to add translations to Qt5 applications.
 
-%package -n qt5-qdbusviewer
+%package -n opt-qt5-qdbusviewer
 Summary: D-Bus debugger and viewer
 Requires: %{name}-common = %{version}-%{release}
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} >= %{_opt_qt5_version}}
-%description -n qt5-qdbusviewer
+%description -n opt-qt5-qdbusviewer
 QDbusviewer can be used to inspect D-Bus objects of running programs
 and invoke methods on those objects.
 
-%package -n qt5-doctools
+%package -n opt-qt5-doctools
 Summary: Qt5 doc tools package
-Provides: qt5-qdoc = %{version}
-Obsoletes: opt-qt5-qdoc < 5.8.0
-Provides: qt5-qhelpgenerator = %{version}
-Obsoletes: opt-qt5-qhelpgenerator < 5.8.0
-Provides: qt5-qtattributionsscanner = %{version}
-Obsoletes: opt-qt5-qtattributionsscanner < 5.8.0
+Provides: opt-qt5-qdoc = %{version}
+Provides: opt-qt5-qhelpgenerator = %{version}
+Provides: opt-qt5-qtattributionsscanner = %{version}
 Requires: opt-qt5-qtattributionsscanner = %{version}
 
-%description -n qt5-doctools
+%description -n opt-qt5-doctools
 %{summary}.
 
 %package examples
@@ -192,30 +189,30 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %files  libs-help
 %{_opt_qt5_libdir}/libQt5Help.so.5*
 
-%files -n qt5-assistant
+%files -n opt-qt5-assistant
 %{_opt_qt5_bindir}/assistant*
 #{_datadir}/applications/*assistant.desktop
 #{_datadir}/icons/hicolor/*/apps/assistant*.*
 
-%files -n qt5-doctools
-#{_opt_qt5_bindir}/qdoc*
+%files -n opt-qt5-doctools
+%{_opt_qt5_bindir}/qdoc*
 %{_opt_qt5_bindir}/qdistancefieldgenerator*
 %{_opt_qt5_bindir}/qhelpgenerator*
 %{_opt_qt5_bindir}/qtattributionsscanner*
 
-%files -n qt5-designer
+%files -n opt-qt5-designer
 %{_opt_qt5_bindir}/designer*
 #{_datadir}/applications/*designer.desktop
 #{_datadir}/icons/hicolor/*/apps/designer*.*
 %{_opt_qt5_libdir}/cmake/Qt5DesignerComponents/Qt5DesignerComponentsConfig*.cmake
 
 %if 0%{?webkit}
-%files -n qt5-designer-plugin-webkit
+%files -n opt-qt5-designer-plugin-webkit
 %{_opt_qt5_plugindir}/designer/libqwebview.so
 %{_opt_qt5_libdir}/cmake/Qt5Designer/Qt5Designer_QWebViewPlugin.cmake
 %endif
 
-%files -n qt5-linguist
+%files -n opt-qt5-linguist
 %{_opt_qt5_bindir}/linguist*
 # phrasebooks used by linguist
 %{_opt_qt5_datadir}/phrasebooks/
@@ -231,7 +228,7 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %{_opt_qt5_libdir}/cmake/Qt5LinguistTools/Qt5LinguistToolsConfig*.cmake
 %{_opt_qt5_libdir}/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake
 
-%files -n qt5-qdbusviewer
+%files -n opt-qt5-qdbusviewer
 %{_opt_qt5_bindir}/qdbusviewer*
 #{_datadir}/applications/*qdbusviewer.desktop
 #{_datadir}/icons/hicolor/*/apps/qdbusviewer*.*
