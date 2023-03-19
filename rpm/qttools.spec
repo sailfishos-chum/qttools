@@ -178,6 +178,7 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %files  libs-designer
 %{_opt_qt5_libdir}/libQt5Designer.so.5*
 %dir %{_opt_qt5_libdir}/cmake/Qt5Designer/
+%{_opt_qt5_plugindir}/designer
 
 %post libs-designercomponents -p /sbin/ldconfig
 %postun libs-designercomponents -p /sbin/ldconfig
