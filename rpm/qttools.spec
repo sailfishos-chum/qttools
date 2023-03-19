@@ -166,11 +166,8 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 
 %files
-%{_opt_qt5_bindir}/qdbus-qt5
 %{_opt_qt5_bindir}/qtpaths
 %{_opt_qt5_bindir}/qdbus
-%{_opt_qt5_bindir}/qdbus-qt5
-%{_opt_qt5_bindir}/qtpaths
 
 %files common
 %license LICENSE.LGPL*
@@ -195,23 +192,17 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %{_opt_qt5_libdir}/libQt5Help.so.5*
 
 %files -n qt5-assistant
-%{_opt_qt5_bindir}/assistant-qt5
 %{_opt_qt5_bindir}/assistant*
 %{_datadir}/applications/*assistant.desktop
 %{_datadir}/icons/hicolor/*/apps/assistant*.*
 
 %files -n qt5-doctools
 %{_opt_qt5_bindir}/qdoc*
-%{_opt_qt5_bindir}/qdoc*
 %{_opt_qt5_bindir}/qdistancefieldgenerator*
 %{_opt_qt5_bindir}/qhelpgenerator*
-%{_opt_qt5_bindir}/qdistancefieldgenerator*
-%{_opt_qt5_bindir}/qhelpgenerator*
-%{_opt_qt5_bindir}/qtattributionsscanner-qt5
 %{_opt_qt5_bindir}/qtattributionsscanner*
 
 %files -n qt5-designer
-%{_opt_qt5_bindir}/designer*
 %{_opt_qt5_bindir}/designer*
 %{_datadir}/applications/*designer.desktop
 %{_datadir}/icons/hicolor/*/apps/designer*.*
@@ -225,16 +216,11 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 %files -n qt5-linguist
 %{_opt_qt5_bindir}/linguist*
-%{_opt_qt5_bindir}/linguist*
 # phrasebooks used by linguist
 %{_opt_qt5_datadir}/phrasebooks/
 %{_datadir}/applications/*linguist.desktop
 %{_datadir}/icons/hicolor/*/apps/linguist*.*
 # linguist friends
-%{_opt_qt5_bindir}/lconvert*
-%{_opt_qt5_bindir}/lrelease*
-%{_opt_qt5_bindir}/lupdate*
-%{_opt_qt5_bindir}/lprodump*
 %{_opt_qt5_bindir}/lconvert*
 %{_opt_qt5_bindir}/lrelease*
 %{_opt_qt5_bindir}/lupdate*
@@ -246,7 +232,6 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 
 %files -n qt5-qdbusviewer
 %{_opt_qt5_bindir}/qdbusviewer*
-%{_opt_qt5_bindir}/qdbusviewer*
 %{_datadir}/applications/*qdbusviewer.desktop
 %{_datadir}/icons/hicolor/*/apps/qdbusviewer*.*
 
@@ -255,11 +240,6 @@ sed -i -e 's| Qt5UiPlugin||g' %{buildroot}%{_opt_qt5_libdir}/pkgconfig/Qt5Design
 %{_opt_qt5_bindir}/qcollectiongenerator*
 #{_bindir}/qhelpconverter*
 %{_opt_qt5_bindir}/qtdiag*
-%{_opt_qt5_bindir}/qtplugininfo*
-%{_opt_qt5_bindir}/pixeltool*
-%{_opt_qt5_bindir}/qtdiag*
-%{_opt_qt5_bindir}/qcollectiongenerator*
-#{_qt5_bindir}/qhelpconverter*
 %{_opt_qt5_bindir}/qtplugininfo*
 %{_opt_qt5_headerdir}/QtDesigner/
 %{_opt_qt5_headerdir}/QtDesignerComponents/
