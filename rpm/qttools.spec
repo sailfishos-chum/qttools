@@ -63,6 +63,7 @@ Requires: %{name}-devel%{?_isa} = %{version}-%{release}
 
 %package libs-designer
 Summary: Qt5 Designer runtime library
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 Requires: opt-qt5-qtbase-gui >= %{qt_version}
 Requires: opt-qt5-qtdeclarative >= %{qt_version}
@@ -71,6 +72,7 @@ Requires: opt-qt5-qtdeclarative >= %{qt_version}
 
 %package libs-designercomponents
 Summary: Qt5 Designer Components runtime library
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 %description libs-designercomponents
@@ -78,6 +80,7 @@ Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 
 %package libs-help
 Summary: Qt5 Help runtime library
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 Requires: opt-qt5-qtbase-gui >= %{qt_version}
 %description libs-help
@@ -85,6 +88,7 @@ Requires: opt-qt5-qtbase-gui >= %{qt_version}
 
 %package -n opt-qt5-assistant
 Summary: Documentation browser for Qt5
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 Requires: %{name}-libs-help%{?_isa} = %{version}-%{release}
 %description -n opt-qt5-assistant
@@ -92,6 +96,7 @@ Requires: %{name}-libs-help%{?_isa} = %{version}-%{release}
 
 %package -n opt-qt5-designer
 Summary: Design GUIs for Qt5 applications
+%{?opt_qt5_default_filter}
 Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 Requires: %{name}-libs-designercomponents%{?_isa} = %{version}-%{release}
 %description -n opt-qt5-designer
@@ -100,6 +105,7 @@ Requires: %{name}-libs-designercomponents%{?_isa} = %{version}-%{release}
 %if 0%{?webkit}
 %package -n opt-qt5-designer-plugin-webkit
 Summary: Qt5 designer plugin for WebKit
+%{?opt_qt5_default_filter}
 BuildRequires: pkgconfig(Qt5WebKitWidgets)
 Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 %description -n opt-qt5-designer-plugin-webkit
@@ -108,6 +114,7 @@ Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 
 %package -n opt-qt5-linguist
 Summary: Qt5 Linguist Tools
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 Requires: opt-qt5-qtbase-gui >= %{qt_version}
 %description -n opt-qt5-linguist
@@ -115,6 +122,7 @@ Tools to add translations to Qt5 applications.
 
 %package -n opt-qt5-qdbusviewer
 Summary: D-Bus debugger and viewer
+%{?opt_qt5_default_filter}
 Requires: %{name}-common = %{version}-%{release}
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} >= %{_opt_qt5_version}}
 %description -n opt-qt5-qdbusviewer
@@ -123,6 +131,7 @@ and invoke methods on those objects.
 
 %package -n opt-qt5-doctools
 Summary: Qt5 doc tools package
+%{?opt_qt5_default_filter}
 Provides: opt-qt5-qdoc = %{version}
 Provides: opt-qt5-qhelpgenerator = %{version}
 Provides: opt-qt5-qtattributionsscanner = %{version}
