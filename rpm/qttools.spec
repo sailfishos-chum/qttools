@@ -12,6 +12,8 @@ License: LGPLv3 or LGPLv2
 Url:     http://www.qt.io
 Source0: %{name}-%{version}.tar.bz2
 
+%{?opt_qt5_default_filter}
+
 BuildRequires: make
 # %%check needs cmake (and don't want to mess with cmake28)
 %if 0%{?fedora} || 0%{?rhel} > 6
@@ -49,6 +51,7 @@ Requires: opt-qt5-doctools = %{version}-%{release}
 Requires: opt-qt5-designer = %{version}-%{release}
 Requires: opt-qt5-linguist = %{version}-%{release}
 Requires: opt-qt5-qtbase-devel%{?_isa}
+Requires: opt-qt5-qtbase-gui >= %{qt_version}
 %description devel
 %{summary}.
 
@@ -61,24 +64,29 @@ Requires: %{name}-devel%{?_isa} = %{version}-%{release}
 %package libs-designer
 Summary: Qt5 Designer runtime library
 Requires: %{name}-common = %{version}-%{release}
+Requires: opt-qt5-qtbase-gui >= %{qt_version}
+Requires: opt-qt5-qtdeclarative >= %{qt_version}
 %description libs-designer
 %{summary}.
 
 %package libs-designercomponents
 Summary: Qt5 Designer Components runtime library
 Requires: %{name}-common = %{version}-%{release}
+Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 %description libs-designercomponents
 %{summary}.
 
 %package libs-help
 Summary: Qt5 Help runtime library
 Requires: %{name}-common = %{version}-%{release}
+Requires: opt-qt5-qtbase-gui >= %{qt_version}
 %description libs-help
 %{summary}.
 
 %package -n opt-qt5-assistant
 Summary: Documentation browser for Qt5
 Requires: %{name}-common = %{version}-%{release}
+Requires: %{name}-libs-help%{?_isa} = %{version}-%{release}
 %description -n opt-qt5-assistant
 %{summary}.
 
@@ -101,6 +109,7 @@ Requires: %{name}-libs-designer%{?_isa} = %{version}-%{release}
 %package -n opt-qt5-linguist
 Summary: Qt5 Linguist Tools
 Requires: %{name}-common = %{version}-%{release}
+Requires: opt-qt5-qtbase-gui >= %{qt_version}
 %description -n opt-qt5-linguist
 Tools to add translations to Qt5 applications.
 
@@ -118,6 +127,8 @@ Provides: opt-qt5-qdoc = %{version}
 Provides: opt-qt5-qhelpgenerator = %{version}
 Provides: opt-qt5-qtattributionsscanner = %{version}
 Requires: opt-qt5-qtattributionsscanner = %{version}
+Requires: %{name}-libs-help%{?_isa} = %{version}-%{release}
+Requires: opt-qt5-qtdeclarative >= %{qt_version}
 
 %description -n opt-qt5-doctools
 %{summary}.
