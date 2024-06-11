@@ -1,11 +1,11 @@
-%global qt_version 5.15.10
+%global qt_version 5.15.14
 
 # Disable automatic .la file removal
 %global __brp_remove_la_files %nil
 
 Summary: Qt5 - QtTool components
 Name: opt-qt5-qttools
-Version: 5.15.10+kde3
+Version: 5.15.14+kde4
 Release: 1%{?dist}
 
 License: LGPLv3 or LGPLv2
